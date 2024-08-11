@@ -5,29 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News App </title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    
 </head>
 <body>
     <nav class="nav">
         <div class="main-nav container flex">
             <a href="#" class="company-logo">
-                <img src="./assets/logo.png" alt="news logo">
+                <img src="./assets/logo.png" onclick="window.location.reload()" alt="news logo">
             </a>
             <div class="nav-links">
-                <ul class="flex nav-links">
-                    <li class="hover-link nav-item">GEOPOLITICS</li>
-                    <li class="hover-link nav-item">FINANCE</li>
-                    <li class="hover-link nav-item">SPORTS</li>
-                </ul>
+                
+                    <div class="flex nav-links">
+                        <button  class="hover-link nav-item" id="politics" onclick="fetchNews('politics')" >politics</button>
+                        <button  class="hover-link nav-item" id="sports" onclick="fetchNews('sports')" >sports</button>
+                        <button  class="hover-link nav-item" id="education" onclick="fetchNews('education')" >education</button>
+
+                    </div>
+                   
+                
             </div>
-            <div class="search-bar">
-                <input type="text" class="news-input" placeholder="e.g. Science">
-                <button class="search-button">Search</button>
+            <div class="search-bar" id="search-bar">
+                <input type="text" class="news-input" id="news-input" placeholder="e.g. Science">
+                <button class="search-button" onclick="searchNews()">Search</button>
             </div>
         </div>
     </nav>
    <main>
      <div class="cards-container container flex " id="cards-container">
+    </div>
+    </main>
         <template id="template-news-card">
             <div class="card">
                 <div class="card-header">
@@ -39,14 +45,15 @@
                     <p class="news-desc" id="news-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, illum iusto nostrum aliquid, aliquam earum quidem libero inventore et ipsa, debitis deleniti quos possimus dignissimos perspiciatis ullam deserunt velit maxime!
                     </p>
                 </div>
-            </div>
+            
         </template>
   
   
     
 
 
-</div></main>
+</div>
     
 </body>
+<script src="script.js"></script>
 </html>

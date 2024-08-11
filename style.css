@@ -78,6 +78,15 @@ ul{
     gap: 20px;
 
 }
+.nav-item{
+    font-size: 20px;
+    background-color:#f3faff ;
+    border: none;
+
+}
+.nav-item:focus{
+    color: green;
+}
 .news-input{
     width: 200px;
     height: 100%;

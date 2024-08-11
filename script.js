@@ -1,6 +1,9 @@
 const API_KEY="b0a48bbd59c24ecd824a5a70c126f25d"
 const url="https://newsapi.org/v2/everything?q="
+
 window.addEventListener('load',()=>fetchNews("India"))
+
+
 async function fetchNews(query){
     const res=await fetch(`${url}${query}&apiKey=${API_KEY}`)
     const data=await res.json();
@@ -8,19 +11,18 @@ async function fetchNews(query){
     bindData(data.articles)
     
 }
-function bindData(articles){
-    const cardsContainer=document.getElementById('cards-container')
-    let newsCardTemplate=document.getElementById("template-news-card");
-    cardsContainer.innerHTML=''
-    articles.forEach((article)=>{
-        if(!article.urlToImage) return;
-        let cardClone=newsCardTemplate.content.cloneNode(true);
-        fillDataInCard(cardClone,article);
-        cardsContainer.appendChild(cardClone)
-    })
+function bindData(articles) {
+    const cardsContainer = document.getElementById("cards-container");
+    const newsCardTemplate = document.getElementById("template-news-card");
 
+    cardsContainer.innerHTML = "";
 
-
+    articles.forEach((article) => {
+        if (!article.urlToImage) return;
+        const cardClone = newsCardTemplate.content.cloneNode(true);
+        fillDataInCard(cardClone, article);
+        cardsContainer.appendChild(cardClone);
+    });
 }
 function fillDataInCard(cardClone,article){
     let newsImg=cardClone.querySelector('#news-img');
@@ -35,5 +37,17 @@ function fillDataInCard(cardClone,article){
         tmeZone:"Asia/Jakarta"
     })
     newsSource.innerHTML=`${article.source.name}.${date}`
+    cardClone.firstElementChild.addEventListener("click",()=>{
+        window.open(article.url,"_blank");
+    })
+}
+function searchNews(){
+    let query=document.getElementById('news-input').value
+    fetchNews(query);
 
 }
+
+
+
+
+
