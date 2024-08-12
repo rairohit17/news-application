@@ -46,6 +46,26 @@ function searchNews(){
     fetchNews(query);
 
 }
+let curSelectedItem=null;
+function onClickNavItem(navElement){
+    let element=document.getElementById(navElement)
+    if ( curSelectedItem==element){
+        element.classList.remove("selected");
+        curSelectedItem=null;
+        fetchNews(navElement)
+        return ;
+    }
+    if ( curSelectedItem){
+        curSelectedItem.classList.remove("selected");
+        
+    }
+    element.classList.add("selected");
+    curSelectedItem=element;
+    fetchNews(navElement)
+    
+
+
+}
 
 
 

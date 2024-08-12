@@ -84,7 +84,10 @@ ul{
     border: none;
 
 }
-.nav-item:focus{
+.nav-item:active{
+    color: green;
+}
+.nav-item:hover{
     color: green;
 }
 .news-input{
@@ -152,5 +155,7 @@ main{
 .news-desc{
     color: #577592;
 }
-
+.selected{
+    color: green;
+}
 
